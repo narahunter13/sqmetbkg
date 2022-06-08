@@ -15,19 +15,19 @@ class DataSeeder extends Seeder
     public function run()
     {
         $dataError = DB::table('threshold_error')->orderBy('data', 'asc')->get();
-        $thresholdSuspect = DB::table('threshold')->where('stasiun_id', '=', 1)->first();
-        $thresholdError['kelembapan'] = $dataError[0];
-        $thresholdError['suhu'] = $dataError[1];
-        $thresholdError['tekanan'] = $dataError[2];
 
         $file = base_path('database/seeders/Mei2022.csv');
         $csv = $this->csvToArray($file);
 
         $data = [];
 
-        foreach($csv as $row) {
-            $dataSebelumnya = $this->getPreviousData($this->getTanggal($row[0]), $this->getJam($row[0]));
-            $data= [
+        foreach ($csv as $row) {
+            $thresholdSuspect = DB::table('threshold')->where('stasiun_id', '=', $row[4])->first();
+            $thresholdError['kelembapan'] = $dataError[0];
+            $thresholdError['suhu'] = $dataError[1];
+            $thresholdError['tekanan'] = $dataError[2];
+            $dataSebelumnya = $this->getPreviousData($this->getTanggal($row[0]), $this->getJam($row[0]), $row[4]);
+            $data = [
                 'stasiun_id' => $row[4],
                 'waktu' => $row[0],
                 'data_suhu' => $row[1] == "" ? NULL : $row[1],
@@ -69,7 +69,6 @@ class DataSeeder extends Seeder
             ];
             DB::table('data')->insert($data);
         }
-
     }
 
     private function csvToArray($csvFile)
@@ -92,9 +91,9 @@ class DataSeeder extends Seeder
         return explode(' ', $string)[1];
     }
 
-    private function getPreviousData($tanggal, $jam)
+    private function getPreviousData($tanggal, $jam, $stasiunId)
     {
-        $data = DB::table('data')->where('waktu', 'LIKE', $tanggal . '%')->orderBy('waktu', 'desc')->get();
+        $data = DB::table('data')->where('stasiun_id', '=', $stasiunId)->where('waktu', 'LIKE', $tanggal . '%')->orderBy('waktu', 'desc')->get();
 
         $dataSuhu = 0;
         $dataKelembapan = 0;
