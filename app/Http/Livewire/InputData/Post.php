@@ -18,7 +18,11 @@ class Post extends Component
 
     public function mount()
     {
-        $this->upt = DB::table('stasiun')->where('wmo_id', '=', session('username'))->first()->id ?? 0;
+        if (session('username') == 'admin') {
+            $this->upt = 0;
+        } else {
+            $this->upt = DB::table('stasiun')->where('wmo_id', '=', session('username'))->first()->id;
+        }
     }
 
     private function getHasilRC($nilaiData, $nilaiSuspect, $nilaiError)
