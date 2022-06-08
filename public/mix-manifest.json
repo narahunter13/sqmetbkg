@@ -1,0 +1,8 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/js/maps.js": "/js/maps.js",
+    "/js/chart/data.js": "/js/chart/data.js",
+    "/js/chart/config.js": "/js/chart/config.js",
+    "/js/chart/init.js": "/js/chart/init.js",
+    "/css/app.css": "/css/app.css"
+}
