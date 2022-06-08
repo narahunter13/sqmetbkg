@@ -9,13 +9,13 @@
                 <tr>
                     <td class="py-2">Batas Atas</td>
                     <td class="p-2">
-                        <x-jet-input class="w-full" type="number" wire:model="batasAtas" />
+                        <x-jet-input class="w-full" type="number" wire:model="batasAtas" step=".01" />
                     </td>
                 </tr>
                 <tr>
                     <td class="py-2">Batas Bawah</td>
                     <td class="p-2">
-                        <x-jet-input class="w-full" type="number" wire:model="batasBawah" />
+                        <x-jet-input class="w-full" type="number" wire:model="batasBawah" step=".01" />
                     </td>
                 </tr>
             </tbody>

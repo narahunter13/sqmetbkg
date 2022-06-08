@@ -41,19 +41,19 @@
                     <tr>
                         <td>Nilai Suhu</td>
                         <td class="py-2 px-4">
-                            <x-jet-input class="w-full" wire:model="suhu" type="number" />
+                            <x-jet-input class="w-full" wire:model="suhu" type="number" step=".01" />
                         </td>
                     </tr>
                     <tr>
                         <td>Nilai Kelembapan</td>
                         <td class="py-2 px-4">
-                            <x-jet-input class="w-full" wire:model="kelembapan" type="number" />
+                            <x-jet-input class="w-full" wire:model="kelembapan" type="number" step=".01" />
                         </td>
                     </tr>
                     <tr>
                         <td>Nilai Tekanan</td>
                         <td class="py-2 px-4">
-                            <x-jet-input class="w-full" wire:model="tekanan" type="number" />
+                            <x-jet-input class="w-full" wire:model="tekanan" type="number" step=".01" />
                         </td>
                     </tr>
                 </tbody>

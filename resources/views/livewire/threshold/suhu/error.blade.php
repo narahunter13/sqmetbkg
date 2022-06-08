@@ -14,10 +14,10 @@
             <tbody>
                 <tr>
                     <td class="p-2">
-                        <x-jet-input class="w-full" type="number" wire:model="batasBawahError" />
+                        <x-jet-input class="w-full" type="number" wire:model="batasBawahError" step=".01" />
                     </td>
                     <td class="p-2">
-                        <x-jet-input class="w-full" type="number" wire:model="batasAtasError" />
+                        <x-jet-input class="w-full" type="number" wire:model="batasAtasError" step=".01" />
                     </td>
                 </tr>
             </tbody>
