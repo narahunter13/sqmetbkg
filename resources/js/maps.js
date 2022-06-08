@@ -1,8 +1,6 @@
 import L from 'leaflet/dist/leaflet';
 import { suhuChart, kelembapanChart, tekananChart } from './chart/init';
 
-const BASE_URL = `${process.env.APP_URL}api`;
-
 var map = L.map('mapid').setView([-1.533406, 117.159704], 5);
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',

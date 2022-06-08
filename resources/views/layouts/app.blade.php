@@ -14,6 +14,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
+    <script>
+        const BASE_URL = '{{ env("APP_URL") }}api';
+    </script>
     @livewireStyles
     @stack('styles')
 
